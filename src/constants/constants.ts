@@ -1,0 +1,1 @@
+export const SHORT_URL_API_URL: string = process.env.REACT_APP_SHORT_API_URL || '';
