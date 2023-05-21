@@ -8,8 +8,8 @@ export const checkNull = function (data: string | undefined, defaultValue?: stri
 
 export const getShortUrl = async (urlData: UrlObject, setisLoading: React.Dispatch<React.SetStateAction<boolean>>, seturlData: React.Dispatch<React.SetStateAction<UrlObject>>, seterror: React.Dispatch<React.SetStateAction<string>>) => {
   setisLoading(true);
-
-  const response = await axios.post(SHORT_URL_API_URL, urlData)
+  
+  const response = await axios.post(SHORT_URL_API_URL, {...urlData, authToken: localStorage.getItem('authToken')})
     .then(function (response) {
       return response;
     })
